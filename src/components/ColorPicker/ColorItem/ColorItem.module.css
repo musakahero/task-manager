@@ -1,0 +1,61 @@
+.color-item {
+    margin: 5px;
+    border: 1px solid grey;
+    border-radius: 30px;
+    min-height: 30px;
+    max-width: 30px;
+    cursor: pointer;
+
+}
+.color-item:focus {
+    border: 2px solid black;
+}
+.color-item:hover {
+    border: 1px solid black;
+}
+
+.green-ash {
+    background-color: #A2DAAB;
+}
+.marigold {
+    background-color: #FAAD5D;
+}
+.willow {
+    background-color: #998B53;
+}
+.desert-mist {
+    background-color: #DEB68B;
+}
+.buttercream {
+    background-color: #ECE3CE;
+}
+.ultimate-gray {
+    background-color: #949597;
+}
+.inkwell {
+    background-color: #363845;
+}
+.raspberry-sorbet {
+    background-color: #CF3A6C;
+}
+.amethyst-orchid {
+    background-color: #9069A5;
+}
+.mint {
+    background-color: #1FA172;
+}
+.burnt-coral {
+    background-color: #E68A80;
+}
+.french-blue {
+    background-color: #1971B1;
+}
+.illuminating {
+    background-color: #F3E05E;
+}
+.rust {
+    background-color: #B35C35;
+}
+.cerulean {
+    background-color: #9EB6D3;
+}

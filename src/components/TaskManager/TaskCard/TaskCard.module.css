@@ -1,0 +1,143 @@
+.task-card-container {
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+    padding: 0.8rem;
+    font-size: 1.5rem;
+}
+
+.task-card-container:hover {
+    
+}
+
+.task-card-container .task-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+} 
+
+.task-card-container .task-card-details {
+    font-size: 1.1rem;
+    padding: 1rem 2rem 0 2rem;
+    overflow: hidden;
+}
+
+.task-card-container .task-card-header .task-title-color {
+    display: flex;
+    align-items: center;
+    /* justify-content: flex-start; */
+    /* margin-right: auto; */
+    width: 65%;
+    gap: 1rem;
+    cursor: pointer;
+}
+
+.task-card-container .task-card-header  .task-color {
+    width: 1rem;
+    height: 2rem;
+    background-color: #000000;
+}
+.task-card-container .task-card-header  .task-controls {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+
+/* Do separate component for btn */
+.task-card-container .btn {
+    
+}
+
+/* FORM STYLING */
+.form {
+    font-size: 1.2rem;
+    display: grid;
+    grid-template-columns: 1fr 1.75fr;
+    grid-template-areas:
+    'labelColor colorPicker'
+    'labelTitle taskTitle'
+    'labelContent taskContent'
+    'cancelBtn addBtn';
+    gap: 1rem;
+    text-align: center;
+    align-items: center;
+}
+
+.form .new-task-color.form-el {
+    padding: 0 0.1rem 0 0.1rem;
+    width: 3rem;
+    display: none;
+}
+
+.form .color-picker .color-display {
+    position: relative;
+    width:  200px;
+    border: 1px solid grey;
+    height: 2rem;
+    background-color: white;
+}
+.form .color-picker .color-palette {
+    position: absolute;
+}
+
+.form .form-el {
+    padding: 0.2rem 1rem 0.2rem 1rem;
+}
+
+.form .add-btn {
+    border-radius: 4px;
+    border: 1px solid grey;
+    background-color: #9dc01e;
+    padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+    cursor: pointer;
+    /* width: 10rem; */
+    /* margin-left: 1rem; */
+}
+.form .cancel-btn {
+    border-radius: 4px;
+    border: 1px solid grey;
+    background-color: #880696;
+    padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+    cursor: pointer;
+    /* width: 10rem; */
+    /* margin-left: auto; */
+    /* margin-right: 1rem; */
+}
+.form .add-btn:hover {
+    background-color: #516607;
+}
+.form .cancel-btn:hover {
+    background-color: #925a99;
+}
+
+/* GRID AREAS */
+.form .label-title {
+    grid-area: labelTitle;
+}
+.form .label-content{
+    grid-area: labelContent;
+}
+.form .new-task-title{
+    grid-area: taskTitle;
+}
+.form .new-task-content{
+    grid-area: taskContent;
+}
+.form .add-btn{
+    grid-area: addBtn;
+}
+.form .cancel-btn{
+    grid-area: cancelBtn;
+}
+.form .label-color{
+    grid-area: labelColor;
+}
+.form .new-task-color{
+    grid-area: taskColor;
+}
+
+.form .color-picker{
+    grid-area: colorPicker;
+}
