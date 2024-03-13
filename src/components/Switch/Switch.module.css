@@ -40,12 +40,14 @@
   
   input:checked + .slider {
     /* background-color: #1588e6; */
-    background-color: #9dc01e;
+    /* background-color: #9dc01e; */
+    background-color: #1FA172;
   }
   
   input:focus + .slider {
     /* box-shadow: 0 0 1px #1588e6; */
-    box-shadow: 0 0 1px #9dc01e;
+    /* box-shadow: 0 0 1px #9dc01e; */
+    box-shadow: 0 0 1px #1FA172;
   }
   
   input:checked + .slider:before {

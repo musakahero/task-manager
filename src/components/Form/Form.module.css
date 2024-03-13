@@ -29,6 +29,7 @@
     height: 2rem;
     background-color: #ECE3CE;
 }
+
 .form .color-picker .color-palette {
     position: absolute;
 }
@@ -40,7 +41,7 @@
 .form .add-btn {
     border-radius: 4px;
     border: 1px solid grey;
-    background-color: #9dc01e;
+    background-color: #1FA172;
     padding: 0.2rem 0.5rem 0.2rem 0.5rem;
     cursor: pointer;
     /* width: 10rem; */
@@ -49,7 +50,7 @@
 .form .cancel-btn {
     border-radius: 4px;
     border: 1px solid grey;
-    background-color: #880696;
+    background-color: #9069A5;
     padding: 0.2rem 0.5rem 0.2rem 0.5rem;
     cursor: pointer;
     /* width: 10rem; */
@@ -57,10 +58,10 @@
     /* margin-right: 1rem; */
 }
 .form .add-btn:hover {
-    background-color: #516607;
+    background-color: #73ddb6;
 }
 .form .cancel-btn:hover {
-    background-color: #925a99;
+    background-color: #ca96e6;
 }
 
 /* GRID AREAS */

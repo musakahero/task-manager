@@ -1,7 +1,7 @@
 import styles from './ColorPicker.module.css';
 import { ColorItem } from './ColorItem/ColorItem';
 
-export const ColorPicker = ({ setCurrentlyPicked }) => {
+export const ColorPicker = ({ setCurrentlyPicked, setOpenPalette }) => {
 
     const colorPalette = {
         "buttercream": '#ECE3CE',
@@ -28,7 +28,8 @@ export const ColorPicker = ({ setCurrentlyPicked }) => {
                     key={c} 
                     colorName={c} 
                     color={colorPalette[c]} 
-                    setCurrentlyPicked={setCurrentlyPicked} />)
+                    setCurrentlyPicked={setCurrentlyPicked}
+                    setOpenPalette={setOpenPalette} />)
             }
         </div>
     )
