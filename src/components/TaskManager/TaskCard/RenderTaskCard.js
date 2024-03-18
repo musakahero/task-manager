@@ -15,6 +15,7 @@ export const RenderTaskCard = ({
     openDetails,
     isForm,
     formValues,
+    changeValues,
     onChangeHandler,
     onSubmit,
     content,
@@ -63,6 +64,9 @@ export const RenderTaskCard = ({
                         className={styles['icon-edit']}
                         icon={faEdit}
                         onClick={() => {
+                            console.log('current content', content);
+                            changeValues({content,
+                            title,color})
                             setIsForm(prev => !prev);
                         }}
                     />

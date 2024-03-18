@@ -27,12 +27,11 @@ export const Form = ({
                     onClick={() => {
                         setOpenPalette(prev => !prev);
                     }}
-                    // onBlur={setOpenPalette(false)}
                 ></div>
                 {openPalette && <div className={styles['color-palette']}>
-                    <ColorPicker 
-                    setCurrentlyPicked={setCurrentlyPickedColor}
-                    setOpenPalette={setOpenPalette} />
+                    <ColorPicker
+                        setCurrentlyPicked={setCurrentlyPickedColor}
+                        setOpenPalette={setOpenPalette} />
                 </div>}
             </div>
 
@@ -42,7 +41,6 @@ export const Form = ({
                 name='color'
                 onChange={onChangeHandler}
                 value={formValues.color = currentlyPickedColor} />
-            {/* end of new input */}
 
             <label
                 className={`${styles['label-title']} ${styles['form-el']}`}

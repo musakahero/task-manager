@@ -1,4 +1,3 @@
-/* FORM STYLING */
 .form {
     font-size: 1.2rem;
     display: grid;
@@ -31,7 +30,7 @@
 }
 
 .form .color-picker .color-palette {
-    position: absolute;
+    position: sticky;
 }
 
 .form .form-el {

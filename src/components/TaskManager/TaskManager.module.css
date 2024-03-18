@@ -13,22 +13,25 @@
     background-color: rgba(73, 72, 72, 0.288);
 }
 
-/* .col-labels {
+
+.task-container .task-header {
     display: flex;
     justify-content: space-between;
-    padding: 0 0.5rem 0 0.5rem;
-} */
+    align-items: center;
+}
 
-.task-placeholder-container {
+
+.task-container .task-placeholder-container {
     user-select: none;
     font-size: 1.5rem;
     overflow: hidden;
     border: 1px solid grey;
+    border-radius: 8px;
     margin-bottom: 0.5rem;
     padding: 0.8rem;
     cursor: pointer;
 }
 
-.task-placeholder-container:hover {
+.task-container .task-placeholder-container:hover {
     backdrop-filter: brightness(60%);
 }

@@ -2,36 +2,37 @@ import { TaskCard } from './TaskCard/TaskCard';
 import styles from './TaskManager.module.css';
 import { Form } from '../Form/Form';
 import { Sort } from '../Sort/Sort';
+import { Search } from '../Search/Search';
 
 export const RenderTaskManager = (
-    { disableClick,
-        setOpenForm,
-        setDisableClick,
-        openForm,
+    {
+        sortedTasks, setAllTasks,
+        openForm, setOpenForm,
+        disableClick, setDisableClick,
+        openPalette, setOpenPalette,
+        currentlyPickedColor, setCurrentlyPickedColor,
+        selectedSort, setSelectedSort,
+        formValues,
         onSubmit,
         onChangeHandler,
-        formValues,
-        allTasks,
-        setAllTasks,
-        openPalette,
-        setOpenPalette,
         onCancelHandler,
-        currentlyPickedColor,
-        setCurrentlyPickedColor,
-        selectedSort,
-        setSelectedSort,
-        sortedTasks }
+        onSearchHandler
+    }
 ) => {
 
 
     return (
         <div className={styles["task-container"]}>
-            <Sort
-                selectedSort={selectedSort}
-                setSelectedSort={setSelectedSort} />
+            <div className={styles["task-header"]}>
+                <Search
+                    onSearchHandler={onSearchHandler}/>
+                <Sort
+                    selectedSort={selectedSort}
+                    setSelectedSort={setSelectedSort}/>
+            </div>
             {/* New Task placeholder */}
             <div className={styles["task-placeholder-container"]}
-                // When the placeholder is clicked, openForm toggle is true, disableClick is true. If disableClick true, can't close down the drop-down through clicking on the placeholder.
+                // When the placeholder is clicked, openForm=true, disableClick=true. If disableClick true, can't close down the drop-down by clicking on the placeholder.
                 onClick={() => {
                     if (!disableClick) {
                         setOpenForm(prev => !prev);

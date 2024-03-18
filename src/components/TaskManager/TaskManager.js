@@ -4,14 +4,14 @@ import { useEffect, useState } from 'react';
 import { useForm } from '../../hooks/useForm';
 import { RenderTaskManager } from './RenderTaskManager';
 import { useSort } from '../../hooks/useSort';
+import { useSearch } from '../../hooks/useSearch';
 
 export const TaskManager = () => {
+    const [allTasks, setAllTasks] = useState([]);
     const [openForm, setOpenForm] = useState(false);
     const [disableClick, setDisableClick] = useState(false);
-    const [allTasks, setAllTasks] = useState([]);
     const [openPalette, setOpenPalette] = useState(false);
     const [currentlyPickedColor, setCurrentlyPickedColor] = useState('#1FA172');
-    
     //fetch all tasks on mount
     useEffect(() => {
         taskService.getAll()
@@ -19,8 +19,15 @@ export const TaskManager = () => {
             .catch(err => alert(err));
     }, []);
 
+    //search hook, accepts array to filter through, returns filtered array and search handler to use for the search form onSubmit
+    const { foundItems, onSearchHandler } = useSearch(allTasks);
+
     //sorting hook, accepts initialValue and array to be sorted
-    const {selectedSort, setSelectedSort, sortedTasks} = useSort('title_asc', allTasks);
+    // const { selectedSort, setSelectedSort, sortedTasks } = useSort('title_asc', foundItems);
+    const { selectedSort, setSelectedSort, sortedTasks } = useSort('title_asc', foundItems, {'title': 'text',
+        'color': 'text',
+        'isCompleted': 'boolean'});
+
 
     // >>> HANDLERS <<<
     // Handle Create task
@@ -31,16 +38,17 @@ export const TaskManager = () => {
                 throw Error('The task needs to have a title (minimum 1 character).');
             };
             //clear form values
-            changeValues({ title: '', content: '', color: '#000000', color: '' });
+            changeValues({ title: '', content: '', color: '' });
             //close drop-downs and re-enable drop-down clicking
             setOpenForm(prev => !prev);
             setDisableClick(false);
             setOpenPalette(prev => false);
             // POST request
-            taskService.create(data).then(result =>
-                //update state
-                setAllTasks(prev => [...prev, result])
-            );
+            taskService.create(data)
+                .then(result =>
+                    //update state
+                    setAllTasks(prev => [...prev, result]))
+                .catch(err => alert(err.message));
         } catch (err) {
             alert(err.message);
         }
@@ -58,8 +66,6 @@ export const TaskManager = () => {
         content: ''
     }, createHandler)
 
-    
-
     return (
         <RenderTaskManager
             openPalette={openPalette}
@@ -73,13 +79,13 @@ export const TaskManager = () => {
             onSubmit={onSubmit}
             onChangeHandler={onChangeHandler}
             formValues={formValues}
-            allTasks={allTasks}
             setAllTask={setAllTasks}
             currentlyPickedColor={currentlyPickedColor}
             setCurrentlyPickedColor={setCurrentlyPickedColor}
             selectedSort={selectedSort}
             setSelectedSort={setSelectedSort}
             sortedTasks={sortedTasks}
+            onSearchHandler={onSearchHandler}
         />
     )
 }

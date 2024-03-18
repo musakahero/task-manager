@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import styles from './TaskCard.module.css';
 import * as taskService from '../../../services/taskService';
 import { useForm } from '../../../hooks/useForm';
 import { RenderTaskCard } from './RenderTaskCard';
@@ -20,7 +19,7 @@ export const TaskCard = ({ title, color, id, setAllTasks, content, isCompleted }
 
     const editHandler = (data) => {
         try {
-            //allow details to appear again
+            //fill in previous data
 
             // validate
             if (data.title == false) {
@@ -36,12 +35,12 @@ export const TaskCard = ({ title, color, id, setAllTasks, content, isCompleted }
                     setAllTasks(prev => [...prev.filter(t => t.id !== id), result]);
                 });
         } catch (err) {
-            console.log(err.message);
+            alert(err.message);
         }
     };
 
     //handle controlled form via custom hook
-    const { formValues, onChangeHandler, onSubmit } = useForm({
+    const { formValues, onChangeHandler, onSubmit, changeValues } = useForm({
         id: taskDetails.id,
         title: taskDetails.title,
         content: taskDetails.content,
@@ -63,7 +62,6 @@ export const TaskCard = ({ title, color, id, setAllTasks, content, isCompleted }
         //change local element state
         setAllTasks(prevState => prevState.filter(t => t.id !== id));
     };
-
     //cancel button handler
     const onCancelHandler = () => {
         setIsForm(prev => !prev);
@@ -82,6 +80,7 @@ export const TaskCard = ({ title, color, id, setAllTasks, content, isCompleted }
                 openDetails={openDetails}
                 isForm={isForm}
                 formValues={formValues}
+                changeValues={changeValues}
                 onChangeHandler={onChangeHandler}
                 onSubmit={onSubmit}
                 content={content}
