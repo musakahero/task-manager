@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 export const useSort = (initialValue, array, factorsInput) => {
+    console.log('usesort is running');
     
     // sort parameters state, updated from select input value
     const [selectedSort, setSelectedSort] = useState(initialValue);
@@ -55,6 +56,13 @@ const sortItems = (array, order, factor, factorsInput) => {
                 array.sort((a, b) => a[factor] - b[factor]);
             } else {
                 array.sort((a, b) => b[factor] - a[factor]);
+            };
+        },
+        '': () => {
+            if (order === 'asc') {
+                array.sort((a, b) => (a[factor]).localeCompare(b[factor]));
+            } else {
+                array.sort((a, b) => (b[factor]).localeCompare(a[factor]));
             };
         }
     };

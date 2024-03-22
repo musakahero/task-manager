@@ -1,7 +1,7 @@
 import {useState} from 'react';
 
 export const useSearch = (array) => {
-    
+    console.log('usesearch is running');
     const [searchParam, setSearchParam] = useState('');
 
     const foundItems = array.filter(i => i.title.includes(searchParam));

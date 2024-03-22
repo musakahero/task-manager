@@ -28,6 +28,7 @@ export const TaskManager = () => {
         'color': 'text',
         'isCompleted': 'boolean'});
 
+        console.log('re-rendered');
 
     // >>> HANDLERS <<<
     // Handle Create task
