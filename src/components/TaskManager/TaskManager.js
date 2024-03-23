@@ -15,8 +15,32 @@ export const TaskManager = () => {
     //fetch all tasks on mount
     useEffect(() => {
         taskService.getAll()
-            .then(result => setAllTasks(result))
+            .then(result => {
+                setAllTasks(result);
+            })
             .catch(err => alert(err));
+        // const seedData = [{
+        //     "title": "to-do 1",
+        //     "color": "#E68A80",
+        //     "content": "Test to-do 1",
+        //     "id": "11111111",
+        //     "isCompleted": "true"
+        // },
+        // {
+        //     "title": "to-do 2",
+        //     "color": "#B35C35",
+        //     "content": "Test to-do 2",
+        //     "id": "2222222222",
+        //     "isCompleted": "false"
+        // },
+        // {
+        //     "title": "to-do 3",
+        //     "color": "#1FA172",
+        //     "content": "Test to-do 3",
+        //     "id": "333333333",
+        //     "isCompleted": "true"
+        // }];
+        // setAllTasks(seedData);
     }, []);
 
     //search hook, accepts array to filter through, returns filtered array and search handler to use for the search form onSubmit
@@ -24,11 +48,13 @@ export const TaskManager = () => {
 
     //sorting hook, accepts initialValue and array to be sorted
     // const { selectedSort, setSelectedSort, sortedTasks } = useSort('title_asc', foundItems);
-    const { selectedSort, setSelectedSort, sortedTasks } = useSort('title_asc', foundItems, {'title': 'text',
+    const { selectedSort, setSelectedSort, sortedTasks } = useSort('title_asc', foundItems, {
+        'title': 'text',
         'color': 'text',
-        'isCompleted': 'boolean'});
+        'isCompleted': 'boolean'
+    });
 
-        console.log('re-rendered');
+    console.log('re-rendered');
 
     // >>> HANDLERS <<<
     // Handle Create task
